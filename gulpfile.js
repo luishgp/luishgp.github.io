@@ -19,13 +19,13 @@ var paths = {
 gulp.task('inject', function () {
 
 	var injectStyles = gulp.src([
-		paths.tmp + '/**/*.css'
+		paths.tmp + '/src/**/*.css'
 		], { read: false }
 		);
 
 	var injectScripts = gulp.src([
-		paths.tmp + '/**/*.js',
-		'!' + paths.src + '/**/*.test.js' 
+		paths.tmp + '/src/**/*.js',
+		'!' + paths.src + '/src/**/*.test.js' 
 		]).pipe(angularFilesort());
 
 	var wiredepOptions = { 
@@ -43,7 +43,7 @@ gulp.task(
 	['inject'], 
 	function () {
 		browserSyncInit([
-			'/',
+			paths.tmp,
 			paths.src
 			], [
 			paths.tmp + '/**/*.css',
