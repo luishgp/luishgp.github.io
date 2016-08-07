@@ -20,6 +20,13 @@ gulp.task('styles', function () {
   return buildStyles();
 });
 
+gulp.task('stylesAuth', function () {
+  return buildSingleScss(path.join(conf.paths.src, '/sass/auth.scss'));
+});
+gulp.task('styles404', function () {
+  return buildSingleScss(path.join(conf.paths.src, '/sass/404.scss'));
+});
+
 var buildStyles = function () {
   var sassOptions = {
     style: 'expanded'
