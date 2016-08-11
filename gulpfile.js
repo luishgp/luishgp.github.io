@@ -4,6 +4,7 @@ var del = require('del');
 var es = require('event-stream');
 var bowerFiles = require('main-bower-files');
 var print = require('gulp-print');
+var ghPages = require('gulp-gh-pages');
 var Q = require('q');
 
 // == PATH STRINGS ========
@@ -324,6 +325,11 @@ gulp.task('watch-prod', ['clean-build-app-prod', 'validate-devserver-scripts'], 
             .pipe(plugins.livereload());
     });
 
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist.prod/**/*')
+    .pipe(ghPages({'branch': 'master', 'message': 'Commit usando gulp'}));
 });
 
 // default task builds for prod
