@@ -1,1 +1,0 @@
-angular.module("BlurAdmin").run(["$templateCache", function($templateCache) {$templateCache.put("app/pages/header.html","<h3>Teste</h3>");}]);
